@@ -227,8 +227,8 @@ app.put("/api/todos/:id", urlencodedParser, function (req, res) {
         return;
     }
 
-    // Mark the todo complete
-    match.completed = true;
+    // Toggle the todo complete
+    match.completed = !match.completed;
     fs.writeFileSync(__dirname + "/data/" + "todos.json", JSON.stringify(data));
 
     // LOG data for tracing
